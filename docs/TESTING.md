@@ -44,9 +44,11 @@ The DevTools installation is temporary by design. These tests do **not** establi
 | Vivaldi on Kubuntu 26.04.1, x86_64 | Vivaldi 8.3.4191.47; Chromium 156.0.8078.110; headless request engine; Node 24.22.3 | 32/32 network checks passed, 2026-11-24 |
 | Google Chrome on Kubuntu 26.04.1, x86_64 | Chrome 158.0.8127.88; headless; Node 24.22.3 | 32/32 network checks passed, 2026-11-24 |
 | Chromium on Kubuntu 26.04.1, x86_64 | Chromium 160.0.8183.0; snapshot 1753500; headless; Node 24.22.3 | 32/32 network checks passed, 2026-11-24 |
-| Chromium on Ubuntu CI | Snapshot 1753500; exact CI result pending | Not yet recorded |
-| Chromium on macOS, Apple Silicon | Pinned CI snapshot; exact result pending | Not yet recorded |
+| Chromium on Ubuntu 22.04.5 CI, x86_64 | Chromium 160.0.8183.0; snapshot 1753500; headless; Node 24.22.3 | 32/32 network and 5/5 source/package checks passed, 2026-11-24 |
+| Chromium on macOS 15.8.2 CI, Apple Silicon | Chromium 160.0.8183.0; snapshot 1753497; headless; Node 24.22.3 | 32/32 network and 5/5 source/package checks passed, 2026-11-24 |
 | Chromium on macOS, Intel | No execution environment used | Not tested |
+
+The successful [Linux and macOS CI run](https://github.com/0000000m/untracked/actions/runs/45462522188) tested commit `3df4acd4a1b395e0796fbc5d69cd9f51249346ba`. Subsequent release-preparation changes only record these results in documentation. The macOS runner was ARM64 with Darwin 24.6.0; the Linux runner used kernel 6.8.0-1070-azure. Test artifacts record each assertion and browser version; CI artifact retention is seven days, while this summary and the repeatable tests remain in source control.
 
 The earlier local prototype was also exercised in ordinary Vivaldi desktop profiles on Linux, including restart persistence of its Linux-only signed installation. That evidence is background context, not a substitute for testing this separately named release or the macOS unpacked UI workflow. The project intentionally omits that machine-specific installation method.
 

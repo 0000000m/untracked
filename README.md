@@ -77,7 +77,7 @@ The test harness uses temporary browser profiles and loopback servers. It is not
 
 The manifest declares Chromium 101 as the API floor for the fields used. That is **not** a claim that every version since 101 was tested. Automated tests use newer browsers with the DevTools extension-loading API.
 
-The release code has passed 32 network checks on Vivaldi 8.3.4191.47 (Chromium 156) and Google Chrome 158 on Linux. Vivaldi automation exercises its headless Chromium request engine; the desktop UI is outside that harness. macOS/Chromium results and exact versions are recorded in the [test matrix](docs/TESTING.md), with pending environments clearly identified.
+The release code has passed 32 network checks on Vivaldi 8.3.4191.47 (Chromium 156), Google Chrome 158 and Chromium 160 on Linux, and Chromium 160 on macOS 15.8.2 (Apple Silicon). Linux and macOS CI also pass all five source/package checks. These are headless request-engine tests; the desktop UI is outside that harness. Exact versions, evidence and untested environments are recorded in the [test matrix](docs/TESTING.md).
 
 Run the source/package checks:
 
