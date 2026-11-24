@@ -1,0 +1,68 @@
+name: Test
+
+on:
+  push:
+    paths:
+      - 'extension/**'
+      - 'tests/**'
+      - 'scripts/**'
+      - 'LICENSE'
+      - '.github/workflows/test.yml'
+  pull_request:
+    paths:
+      - 'extension/**'
+      - 'tests/**'
+      - 'scripts/**'
+      - 'LICENSE'
+      - '.github/workflows/test.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: test-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  chromium:
+    name: Chromium / ${{ matrix.runner }}
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runner: ubuntu-22.04
+            platform: Linux_x64
+            revision: '1753500'
+            sha256: '26061b7ce90903895e18115309eb82ec4712a29657422cf3810ddb5394cdd305'
+          - runner: macos-15
+            platform: Mac_Arm
+            revision: '1753497'
+            sha256: '418f217ab6d1fd96e51fde951ac0ba5966fd52d65ab9bbf567a67fe7e774f621'
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24'
+      - name: Source and release-package checks
+        run: node --test tests/static.test.mjs tests/package.test.mjs
+      - name: Download the pinned official Chromium snapshot
+        run: >-
+          python3 scripts/download-chromium.py
+          '${{ matrix.platform }}' '${{ matrix.revision }}'
+          --sha256 '${{ matrix.sha256 }}'
+          --output .cache/chromium --github-env
+      - name: Verify requests received by local HTTP and HTTPS servers
+        run: node tests/network.mjs
+      - name: Retain versioned test evidence
+        if: always()
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        with:
+          name: test-results-${{ matrix.platform }}
+          path: test-results/*.json
+          if-no-files-found: ignore
+          retention-days: 7

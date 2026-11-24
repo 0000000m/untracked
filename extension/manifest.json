@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Untracked",
+  "version": "1.0.0",
+  "description": "Removes selected URL tracking parameters before HTTP(S) GET and HEAD requests using local, static rules.",
+  "minimum_chrome_version": "101",
+  "permissions": [
+    "declarativeNetRequestWithHostAccess"
+  ],
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "tracking_parameters",
+        "enabled": true,
+        "path": "rules.json"
+      }
+    ]
+  }
+}

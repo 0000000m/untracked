@@ -1,0 +1,107 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "transform": {
+          "queryTransform": {
+            "removeParams": [
+              "utm_source",
+              "utm_medium",
+              "utm_campaign",
+              "utm_term",
+              "utm_content",
+              "utm_id",
+              "utm_source_platform",
+              "utm_creative_format",
+              "utm_marketing_tactic",
+              "utm_reader",
+              "utm_referrer",
+              "utm_name",
+              "utm_cid",
+              "utm_pubreferrer",
+              "fbclid",
+              "gclid",
+              "dclid",
+              "msclkid",
+              "gbraid",
+              "wbraid",
+              "gad_source",
+              "gad_campaign",
+              "srsltid",
+              "twclid",
+              "ttclid",
+              "igshid",
+              "li_fat_id",
+              "mc_cid",
+              "mc_eid",
+              "mkt_tok",
+              "_hsenc",
+              "_hsmi",
+              "__hsfp",
+              "__hssc",
+              "__hstc"
+            ]
+          }
+        }
+      }
+    },
+    "condition": {
+      "isUrlFilterCaseSensitive": true,
+      "requestMethods": [
+        "get",
+        "head"
+      ],
+      "resourceTypes": [
+        "main_frame",
+        "sub_frame",
+        "stylesheet",
+        "script",
+        "image",
+        "font",
+        "object",
+        "xmlhttprequest",
+        "ping",
+        "csp_report",
+        "media",
+        "other"
+      ],
+      "urlFilter": "?"
+    }
+  },
+  {
+    "id": 2,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "transform": {
+          "queryTransform": {
+            "removeParams": [
+              "si"
+            ]
+          }
+        }
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://[^?#]+\\?([^#]*&)?si(=|&|$)",
+      "isUrlFilterCaseSensitive": true,
+      "requestDomains": [
+        "youtube.com",
+        "youtu.be",
+        "youtube-nocookie.com"
+      ],
+      "requestMethods": [
+        "get",
+        "head"
+      ],
+      "resourceTypes": [
+        "main_frame",
+        "sub_frame"
+      ]
+    }
+  }
+]

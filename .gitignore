@@ -1,0 +1,20 @@
+# Local browser-generated files and disposable test data
+**/_metadata/
+test-results/
+dist/
+.cache/
+profiles/
+backups/
+*.log
+*.crx
+*.pem
+*.key
+*.p12
+*.pfx
+.env
+.env.*
+!.env.example
+.DS_Store
+__pycache__/
+*.pyc
+node_modules/
