@@ -95,7 +95,7 @@ BROWSER_PATH="$(command -v vivaldi)" node tests/network.mjs
 BROWSER_PATH="/Applications/Chromium.app/Contents/MacOS/Chromium" node tests/network.mjs
 ```
 
-Development needs Node.js 22+, Python 3.11+ for packaging, and OpenSSL for the HTTPS fixture. There is no `npm install` step. See [TESTING.md](docs/TESTING.md) for the methodology, pinned CI browsers, evidence and test limitations.
+Development needs Node.js 22+, Python 3.10+ for packaging, and OpenSSL for the HTTPS fixture. There is no `npm install` step. See [TESTING.md](docs/TESTING.md) for the methodology, pinned CI browsers, evidence and test limitations.
 
 ## Known limitations
 

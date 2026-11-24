@@ -5,7 +5,7 @@ Tests observe the HTTP request path received by a server, not merely a changed a
 ## Requirements and commands
 
 - Node.js 22 or newer.
-- Python 3.11 or newer for release packaging and optional CI browser downloads.
+- Python 3.10 or newer for release packaging and optional CI browser downloads.
 - OpenSSL for a short-lived test certificate.
 - A current Chromium-based browser supporting the DevTools `Extensions.loadUnpacked` command (Chromium 126+). This automation requirement is separate from the extension's declared API floor of 101.
 

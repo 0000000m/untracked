@@ -35,8 +35,11 @@ with tempfile.TemporaryDirectory(prefix='untracked-download-', dir=args.output.p
     archive = temporary / 'download.zip'
     with urllib.request.urlopen(url, timeout=90) as source, archive.open('wb') as target:
         shutil.copyfileobj(source, target)
+    hasher = hashlib.sha256()
     with archive.open('rb') as source:
-        digest = hashlib.file_digest(source, 'sha256').hexdigest()
+        for chunk in iter(lambda: source.read(1024 * 1024), b''):
+            hasher.update(chunk)
+    digest = hasher.hexdigest()
     if args.sha256 and digest != args.sha256:
         raise SystemExit('Chromium archive checksum mismatch')
     extracted = temporary / 'extracted'

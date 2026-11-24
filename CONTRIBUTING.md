@@ -4,7 +4,7 @@ Keep Untracked small, predictable and easy to review. Its runtime is declarative
 
 ## Development
 
-Use Node.js 22+, Python 3.11+ and OpenSSL. Clone the repository and run:
+Use Node.js 22+, Python 3.10+ and OpenSSL. Clone the repository and run:
 
 ```sh
 node --test tests/static.test.mjs tests/package.test.mjs
