@@ -6,7 +6,7 @@ Untracked removes selected URL tracking parameters before HTTP(S) GET/HEAD reque
 
 Download the ZIP, extract it to a permanent folder, then use **Load unpacked** in Vivaldi or Chromium's extension manager. Select the extracted `untracked` directory. `SHA256SUMS` contains the release ZIP digest.
 
-Validation includes five source/package checks and 32 request-level integration checks per tested browser. See the [test matrix](TESTING.md) for exact environments, current macOS evidence, and untested areas.
+Validation includes five source/package checks and 32 request-level integration checks per tested browser. See the [test matrix](https://github.com/0000000m/untracked/blob/v1.0.0/docs/TESTING.md) for exact environments, current macOS evidence, and untested areas.
 
 This is an independent MIT-licensed project developed with OpenAI Codex/ChatGPT assistance. It is not affiliated with a browser vendor and does not claim comprehensive tracking protection. Literal parameter matching, GET/HEAD scope, signed-link behavior and other limits are documented in the README.
 
